@@ -38,7 +38,7 @@ A simple Android app built with **Jetpack Compose**, **MVVM Architecture**, **Hi
 
 ## 📦 APK Download
 
-👉 [Download latest APK](https://github.com/keyserSoze98/GithubSearch/docs/apk/GithubSearch_V1.0)
+👉 [Download latest APK](docs/apk/GithubSearch_V1.0)
 
 *(APK is provided via GitHub Releases as email attachments are not supported)*
 
