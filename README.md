@@ -34,8 +34,6 @@ A simple Android app built with **Jetpack Compose**, **MVVM Architecture**, **Hi
 |---------------|----------------|
 | ![Search](docs/screenshots/search.png) | ![Profile](docs/screenshots/profile.png) |
 
-*(Add your screenshots under `docs/screenshots/` to display them here)*
-
 ---
 
 ## 🚀 Getting Started
