@@ -17,14 +17,14 @@ A simple Android app built with **Jetpack Compose**, **MVVM Architecture**, **Hi
 
 ## 🛠 Tech Stack
 
-- **UI:** [Jetpack Compose](https://developer.android.com/jetpack/compose)
-- **Architecture:** MVVM Architecture
-- **DI:** [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
-- **Networking:** [Retrofit](https://square.github.io/retrofit/) + [OkHttp Logging Interceptor](https://square.github.io/okhttp/)
-- **Async:** [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)
-- **Image Loading:** [Coil](https://coil-kt.github.io/coil/compose/)
-- **Pagination:** [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
-- **Pull-to-Refresh:** [Accompanist SwipeRefresh](https://google.github.io/accompanist/swiperefresh/)
+- **UI:** [Jetpack Compose](https://developer.android.com/jetpack/compose)  
+- **Architecture:** MVVM Architecture  
+- **DI:** [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)  
+- **Networking:** [Retrofit](https://square.github.io/retrofit/) + [OkHttp Logging Interceptor](https://square.github.io/okhttp/)  
+- **Async:** [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)  
+- **Image Loading:** [Coil](https://coil-kt.github.io/coil/compose/)  
+- **Pagination:** [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)  
+- **Pull-to-Refresh:** [Accompanist SwipeRefresh](https://google.github.io/accompanist/swiperefresh/)  
 
 ---
 
@@ -36,12 +36,20 @@ A simple Android app built with **Jetpack Compose**, **MVVM Architecture**, **Hi
 
 ---
 
+## 📦 APK Download
+
+👉 [Download latest APK](https://github.com/keyserSoze98/GithubSearch/releases/latest)
+
+*(APK is provided via GitHub Releases as email attachments are not supported)*
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Android Studio **Ladybug** or newer
-- JDK 11+
-- Gradle 8+
+- Android Studio **Ladybug** or newer  
+- JDK 11+  
+- Gradle 8+  
 
 ### Steps
 1. Clone the repository
