@@ -8,6 +8,7 @@ import com.keysersoze.githubuser.data.remote.GithubUserDto
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,14 +17,27 @@ class SearchViewModel @Inject constructor(
     private val repository: GithubRepository
 ) : ViewModel() {
 
-    private val _searchState = MutableStateFlow<Resource<List<GithubUserDto>>>(Resource.Success(emptyList()))
-    val searchState: StateFlow<Resource<List<GithubUserDto>>> = _searchState
+    private val _query = MutableStateFlow("")
+    val query: StateFlow<String> = _query.asStateFlow()
 
-    fun searchUsers(query: String) {
+    private val _hasSearched = MutableStateFlow(false)
+    val hasSearched: StateFlow<Boolean> = _hasSearched.asStateFlow()
+
+    private val _searchState = MutableStateFlow<Resource<List<GithubUserDto>>>(Resource.Success(emptyList()))
+    val searchState: StateFlow<Resource<List<GithubUserDto>>> = _searchState.asStateFlow()
+
+    fun updateQuery(new: String) {
+        _query.value = new
+    }
+
+    fun searchUsers() {
+        val trimmed = _query.value.trim()
+        if (trimmed.isEmpty()) return
+
         viewModelScope.launch {
+            _hasSearched.value = true
             _searchState.value = Resource.Loading
-            val result = repository.searchUsers(query)
-            _searchState.value = result
+            _searchState.value = repository.searchUsers(trimmed)
         }
     }
 }

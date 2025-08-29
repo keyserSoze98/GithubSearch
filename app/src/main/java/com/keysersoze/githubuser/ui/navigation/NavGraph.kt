@@ -15,15 +15,16 @@ import com.keysersoze.githubuser.ui.search.SearchScreen
 fun NavGraph(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
 
+    val searchVm = hiltViewModel<com.keysersoze.githubuser.ui.search.SearchViewModel>()
+
     NavHost(
         navController = navController,
         startDestination = "search",
         modifier = modifier
     ) {
         composable("search") {
-            val vm = hiltViewModel<com.keysersoze.githubuser.ui.search.SearchViewModel>()
             SearchScreen(
-                viewModel = vm,
+                viewModel = searchVm,
                 onNavigateToProfile = { username ->
                     navController.navigate("profile/${username.trim()}")
                 }
@@ -34,9 +35,7 @@ fun NavGraph(modifier: Modifier = Modifier) {
             route = "profile/{username}",
             arguments = listOf(navArgument("username") { type = NavType.StringType })
         ) { backStackEntry ->
-            val vm = hiltViewModel<com.keysersoze.githubuser.ui.profile.ProfileViewModel>(
-                backStackEntry
-            )
+            val vm = hiltViewModel<com.keysersoze.githubuser.ui.profile.ProfileViewModel>(backStackEntry)
             ProfileScreen(
                 viewModel = vm,
                 onBack = { navController.popBackStack() }
