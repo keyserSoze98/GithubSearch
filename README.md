@@ -40,8 +40,6 @@ A simple Android app built with **Jetpack Compose**, **MVVM Architecture**, **Hi
 
 👉 [Download latest APK](docs/apk)
 
-*(APK is provided via GitHub Releases as email attachments are not supported)*
-
 ---
 
 ## 🚀 Getting Started
