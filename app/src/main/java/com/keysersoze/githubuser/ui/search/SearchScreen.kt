@@ -71,11 +71,16 @@ fun SearchScreen(
                 }
             }
             is Resource.Error -> {
-                Text(
-                    text = (searchState as Resource.Error).message,
-                    modifier = Modifier.padding(16.dp),
-                    color = MaterialTheme.colorScheme.error
-                )
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = (searchState as Resource.Error).message,
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.error
+                    )
+                }
             }
             is Resource.Success -> {
                 val users = (searchState as Resource.Success<List<GithubUserDto>>).data

@@ -23,16 +23,27 @@ sealed class Resource<out T> {
 class GithubRepository @Inject constructor(
     private val service: GithubService
 ) {
+
+    private fun mapError(e: Exception): String {
+        return when (e) {
+            is IOException -> "Please check your internet connection 🌐"
+            is HttpException -> {
+                when (e.code()) {
+                    404 -> "Not found. Please try again."
+                    500 -> "Server error. Please try later."
+                    else -> "Server error (${e.code()})"
+                }
+            }
+            else -> "Something went wrong. Please try again."
+        }
+    }
+
     suspend fun searchUsers(query: String): Resource<List<GithubUserDto>> {
         return try {
             val response = service.searchUsers(query)
             Resource.Success(response.items)
-        } catch (e: IOException) {
-            Resource.Error("Network error: ${e.message ?: "IO error"}")
-        } catch (e: HttpException) {
-            Resource.Error("HTTP error: ${e.message()}")
         } catch (e: Exception) {
-            Resource.Error("Unknown error: ${e.message ?: "error"}")
+            Resource.Error(mapError(e))
         }
     }
 
@@ -42,15 +53,11 @@ class GithubRepository @Inject constructor(
             if (response.isSuccessful) {
                 response.body()?.let { Resource.Success(it) } ?: Resource.Error("Empty response")
             } else {
-                if (response.code() == 404) Resource.Error("User not found")
+                if (response.code() == 404) Resource.Error("User not found 🙁")
                 else Resource.Error("Error ${response.code()}: ${response.message()}")
             }
-        } catch (e: IOException) {
-            Resource.Error("Network error: ${e.message ?: "IO error"}")
-        } catch (e: HttpException) {
-            Resource.Error("HTTP error: ${e.message()}")
         } catch (e: Exception) {
-            Resource.Error("Unknown error: ${e.message ?: "error"}")
+            Resource.Error(mapError(e))
         }
     }
 
