@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "GithubUser"
+rootProject.name = "Github User Explorer"
 include(":app")
  

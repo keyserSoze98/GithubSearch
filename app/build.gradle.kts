@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.keysersoze.githubuser"
+    namespace = "com.keysersoze.githubuserexplorer"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.keysersoze.githubuser"
+        applicationId = "com.keysersoze.githubuserexplorer"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
