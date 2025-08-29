@@ -48,4 +48,4 @@ A simple Android app built with **Jetpack Compose**, **MVVM Architecture**, **Hi
 ### Steps
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/github-user-explorer.git
+   git clone https://github.com/keyserSoze98/GithubSearch
