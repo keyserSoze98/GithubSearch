@@ -42,7 +42,9 @@ class SearchViewModelTest {
         whenever(repository.searchUsers("kishan")).thenReturn(Resource.Success(fakeUsers))
 
         viewModel.searchState.test {
-            viewModel.searchUsers("kishan")
+            viewModel.updateQuery("kishan")
+            viewModel.searchUsers()
+
 
             assert(awaitItem() is Resource.Success) // initial state
             assert(awaitItem() is Resource.Loading) // loading
@@ -56,7 +58,9 @@ class SearchViewModelTest {
         whenever(repository.searchUsers("error")).thenReturn(Resource.Error("Network error"))
 
         viewModel.searchState.test {
-            viewModel.searchUsers("error")
+            viewModel.updateQuery("error")
+            viewModel.searchUsers()
+
 
             assert(awaitItem() is Resource.Success)
             assert(awaitItem() is Resource.Loading)
