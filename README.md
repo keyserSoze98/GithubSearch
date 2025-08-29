@@ -38,7 +38,7 @@ A simple Android app built with **Jetpack Compose**, **MVVM Architecture**, **Hi
 
 ## 📦 APK Download
 
-👉 [Download latest APK](docs/apk)
+👉 [Download latest APK](docs/apk/app-debug.apk)
 
 ---
 
